@@ -1,7 +1,5 @@
 package com.asesoftware.semilla.gestorturnos.service;
-
 import java.util.List;
-
 import com.asesoftware.semilla.gestorturnos.entity.ComercioEntity;
 
 public interface IComercioService {
