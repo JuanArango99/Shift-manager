@@ -7,6 +7,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.Data;
+
+@Data
 @Entity
 @Table(name = "servicio")
 public class ServicioEntity {
@@ -18,6 +21,19 @@ public class ServicioEntity {
 	
 	@Column(name = "nombre")
 	private String nombre;
+	
+	@Column(name = "hora_apertura")
+	private String hora_apertura;
+	
+	@Column(name = "hora_cierre")
+	private String hora_cierre;
+	
+	@Column(name = "duracion")
+	private String duracion;
+	
+	@Column(name = "id_comercio")
+	private Integer id_comercio;
+	
 	
 	public Integer getId() {
 		return id;
@@ -67,17 +83,7 @@ public class ServicioEntity {
 		this.id_comercio = id_comercio;
 	}
 
-	@Column(name = "hora_apertura")
-	private String hora_apertura;
 	
-	@Column(name = "hora_cierre")
-	private String hora_cierre;
-	
-	@Column(name = "duracion")
-	private String duracion;
-	
-	@Column(name = "id_comercio")
-	private Integer id_comercio;
 	
 	
 	
