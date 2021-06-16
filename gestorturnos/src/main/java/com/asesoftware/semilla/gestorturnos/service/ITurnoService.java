@@ -7,4 +7,5 @@ public interface ITurnoService {
 
 	public List<TurnoEntity> getAll();
 	
+	
 }

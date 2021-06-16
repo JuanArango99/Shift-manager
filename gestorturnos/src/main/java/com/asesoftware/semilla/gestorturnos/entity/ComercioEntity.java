@@ -32,29 +32,7 @@ public class ComercioEntity {
 	private List<ServicioEntity> servicio;
 	
 
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public Integer getAforo_maximo() {
-		return aforo_maximo;
-	}
-
-	public void setAforo_maximo(Integer aforo_maximo) {
-		this.aforo_maximo = aforo_maximo;
-	}
+	
 	
 	
 }
