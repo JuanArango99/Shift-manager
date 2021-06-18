@@ -1,17 +1,19 @@
 package com.asesoftware.semilla.gestorturnos.service;
-import java.util.List;
-import com.asesoftware.semilla.gestorturnos.entity.ServicioEntity;
+import com.asesoftware.semilla.gestorturnos.dto.ResponseDTO;
+import com.asesoftware.semilla.gestorturnos.dto.ServicioDTO;
 
 public interface IServicioService {
 	
-	public List<ServicioEntity> getAll();
+	public ResponseDTO getAll();
 	
-	public ServicioEntity getServicioByID(Integer id);
+	public ResponseDTO getServicioByID(Integer id);
 	
-	public ServicioEntity createServicio(ServicioEntity servicioEntity);
+	public ResponseDTO getServicioByComercioID(Integer id);
 	
-	public ServicioEntity updateServicio(ServicioEntity servicioEntity);
+	public ResponseDTO createServicio(ServicioDTO dto);
 	
-	public void deleteServicio(Integer id);
+	public ResponseDTO updateServicio(ServicioDTO dto);
+	
+	public ResponseDTO deleteServicio(Integer id);
 
 }

@@ -1,6 +1,5 @@
 package com.asesoftware.semilla.gestorturnos.controller;
 
-import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,9 +9,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import com.asesoftware.semilla.gestorturnos.entity.ComercioEntity;
+import com.asesoftware.semilla.gestorturnos.dto.ComercioDTO;
+import com.asesoftware.semilla.gestorturnos.dto.ResponseDTO;
 import com.asesoftware.semilla.gestorturnos.service.IComercioService;
 
 @RestController
@@ -26,43 +25,42 @@ public class ComercioController {
 	
 	//buscar todos
 	@GetMapping(path = "/all")
-	public List<ComercioEntity> getAll(){
-		Logger.info("Controller method: getAll");
+	public ResponseDTO getAll(){
+		Logger.info("Comercio Controller method: getAll");
 		return comercioService.getAll();
 	}
 	
 	//buscar por id
-	@GetMapping(path = "/user")
-	public ComercioEntity getComercioById(@RequestParam Integer id) {	// Parametros en la URL, ej (../usuario?id=1)
-		Logger.info("Controller method: getComercioById");
+	@GetMapping(path = "/comercio/{id}")
+	public ResponseDTO getComercioById(@PathVariable Integer id) {	// Parametros en la URL, ej (../usuario?id=1)
+		Logger.info("Comercio Controller method: getComercioById");
 		Logger.info("Comercio ID to get: {}",id);
 		return comercioService.getComercioByID(id);					// Cuando hay 2 params (id, nombre): ../usuario?id=1&nombre=juan
 	}
 	
 	// crear
 	@PostMapping(path= "/create", consumes = "application/json", produces = "application/json")
-	public ComercioEntity createComercio(@RequestBody ComercioEntity entity) {
-		Logger.info("Controller method: createComercio");
-		Logger.info("Comercio entity to create: {}",entity);
-		return comercioService.createComercio(entity);
+	public ResponseDTO createComercio(@RequestBody ComercioDTO dto) {
+		Logger.info("Comercio Controller method: createComercio");
+		Logger.info("Comercio entity to create: {}",dto);
+		return comercioService.createComercio(dto);
 	}
 	
 	//editar
 	@PostMapping(path= "/edit", consumes = "application/json", produces = "application/json")
-	public ComercioEntity editComercio(@RequestBody ComercioEntity entity) {
-		Logger.info("Controller method: editComercio");
-		Logger.info("Comercio entity to edit: {}",entity);
-		return comercioService.updateComercio(entity);
+	public ResponseDTO editComercio(@RequestBody ComercioDTO dto) {
+		Logger.info("Comercio Controller method: editComercio");
+		Logger.info("Comercio entity to edit: {}",dto);
+		return comercioService.updateComercio(dto);
 	}
 	
 	//eliminar
 	@DeleteMapping(path = "/delete/{id}")
-	public void elimiarComercio(@PathVariable Integer id) { // Parametros en el Path, ej (../usuario/1)
-		Logger.info("Controller method: deleteComercio");
+	public ResponseDTO elimiarComercio(@PathVariable Integer id) { // Parametros en el Path, ej (../usuario/1)
+		Logger.info("Comercio Controller method: deleteComercio");
 		Logger.info("Comercio ID to delete: {}",id);
-		comercioService.deleteComercio(id);
+		return comercioService.deleteComercio(id);
 	}
-	
 	
 	
 

@@ -1,5 +1,7 @@
 package com.asesoftware.semilla.gestorturnos.mapper;
 
+import java.util.List;
+
 import org.mapstruct.Mapper;
 
 import com.asesoftware.semilla.gestorturnos.dto.ComercioDTO;
@@ -12,6 +14,7 @@ public interface IComercioMapper {
 	
 	public ComercioDTO entityToDto(ComercioEntity comercioEntity);
 	
+	public List<ComercioDTO> listEntityToDto(List<ComercioEntity> comercioEntity);
 	
 	
 }
